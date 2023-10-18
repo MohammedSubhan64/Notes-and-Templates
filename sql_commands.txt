@@ -1,0 +1,198 @@
+keywords :- len(),round(),concat("+",col1,col2),ceil(),floor(),count(),left(),right(),replace(str,old_str,new_str)in(),substr(),cast(LONG_W AS DECIMAL (10,4))
+1.create
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+); 
+2.insert
+>INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+or
+>INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+
+3.null
+* It is not possible to test for NULL values with comparison operators, such as =, <, or <>.
+> SELECT column_names FROM table_name WHERE column_name IS NULL;
+> SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
+
+4.update
+> UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+
+5.delete
+>DELETE FROM table_name WHERE condition;
+
+6. select Top -select top 3 rows
+>SELECT TOP 3 * FROM Customers;
+
+7.SQL MIN() and MAX() Functions
+>SELECT MIN(Price) FROM Products;
+>SELECT MAX(Price) FROM Products;
+
+8.Count() and similar sum() and avg()
+>SELECT COUNT(column_name) FROM table_name WHERE condition;
+
+9. like
+>SELECT column1, column2 FROM table_name WHERE column2 LIKE pattern;
+patterns are :-
+Symbol	Description
+%	Represents zero or more characters
+_	Represents a single character
+[]	Represents any single character within the brackets *
+^	Represents any character not in the brackets *
+-	Represents any single character within the specified range *
+{}	Represents any escaped character **
+
+
+10. in  and between
+>SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');
+>SELECT * FROM Products WHERE Price BETWEEN 10 AND 20;
+>SELECT * FROM Products WHERE Price BETWEEN 10 AND 20 AND CategoryID IN (1,2,3);
+
+11. SQL Aliases
+>SELECT CustomerID AS ID FROM Customers;
+
+12. joins
+
+13. SQL UNION 
+*UNION selects only distinct values. Use UNION ALL to also select duplicate values!
+>SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+14.Group and Having
+>SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+>SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+
+15. EXISTS Syntax 
+>SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+
+16.Joins in sql
+
+inner join 
+>SELECT ProductID, ProductName, CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+
+
+
+
+
+
+imp questions:-
+1.Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+>select distinct city from station where city like "a%" or city like "e%" or city like "i%" or city like "o%" or city like "u%" 
+or
+>select city from station where city  regexp '^[aeiou]'
+
+2.Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+>SELECT DISTINCT CITY FROM STATION WHERE SUBSTRING(CITY, 1, 1) IN ('a', 'e', 'i', 'o', 'u')
+  AND SUBSTRING(CITY, -1, 1) IN ('a', 'e', 'i', 'o', 'u')
+
+3.Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates
+>SELECT DISTINCT CITY FROM STATION WHERE Left(CITY,1) not in ('a','i','u','e','o')
+
+4.Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+>SELECT DISTINCT CITY FROM STATION WHERE Right(CITY,1) not in ('a','i','u','e','o')
+
+5.Discussions Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Round your answer to 4 decimal places.
+>select round(long_w,4) from station where lat_n in (select min(lat_n) from station where lat_n>38.7780)
+
+6.Consider p1(a,b)  and p2(c,d) to be two points on a 2D plane.
+ * a happens to equal the minimum value in Northern Latitude (LAT_N in STATION). 
+ * b happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+ * c happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+ * d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+Query the Manhattan Distance between points p1 and p2  and round it to a scale of 4 decimal places.
+
+>SELECT ROUND((t.max_x - t.min_x) + (t.max_y - t.min_y), 4)
+FROM (SELECT MAX(LAT_N) AS max_x, MIN(LAT_N) as min_x, MAX(LONG_W) as max_y, MIN(LONG_W) as min_y FROM STATION) as t;
+
+....................... SQL CASE Expression......................
+
+syntax:
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
+eg:
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+output: new col with name AuatittyText
+7.P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+* * * * * 
+* * * * 
+* * * 
+* * 
+*
+Write a query to print the pattern P(20).
+>
+with RECURSIVE pattern as 
+(
+    select 20 as num
+    union all
+    select num - 1 from pattern
+    where num > 0
+)
+select repeat(' * ',num) from pattern
+
+
+8.P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+Write a query to print the pattern P(20).
+
+>set @row := 0; select repeat('* ', @row := @row + 1) from information_schema.tables where @row < 20
+output:
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+* * * * * * * *
+* * * * * * * * *
+* * * * * * * * * *
+* * * * * * * * * * *
+* * * * * * * * * * * *
+* * * * * * * * * * * * *
+* * * * * * * * * * * * * *
+* * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * * *
+
+9.A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+>SELECT ROUND(AVG(LAT_N),4)
+FROM (SELECT *, 
+    ROW_NUMBER() OVER (ORDER BY LAT_N desc) AS lat_n_desc,
+    ROW_NUMBER() OVER (ORDER BY LAT_N asc) AS lat_n_asc
+FROM station) AS st
+WHERE lat_n_desc IN (lat_n_asc, lat_n_asc+1, lat_n_asc-1);
