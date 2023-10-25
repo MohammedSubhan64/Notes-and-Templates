@@ -1,0 +1,115 @@
+................sets in python..................
+s = set([1, 2, 3, 4, 5, 6, 7, 8])
+s.add(9)
+print(s) #{1, 2, 3, 4, 5, 6, 7, 8, 9}
+s.remove(5)
+print(s) #{1, 2, 3, 4, 6, 7, 8, 9}
+
+imp functions :- 
+sorted()
+set(mylist) : coverts to a set
+list(string) :covert to a list
+tuple()
+sort(mylist)
+max(mylist)
+min(mylist)
+string.isupper()
+string.upper()
+string.islower()
+string.lower():- 
+string.capitalize() :- capiatlize first letter
+map(fun,list)
+split():- convert str to list.(string.split(string codition))
+join():-string.join(mylist) (converts list to string )
+
+
+eg for split and join :-
+s="this is a string "
+sp=s.split()
+print(sp) # ['this', 'is', 'a', 'string']
+j=",".join(sp)
+print(j) # this,is,a,string 
+
+Dict:
+d={"name":"Raj","Roll":45,"class":"CSE"}
+print(d)
+print(d.values())
+print(d.keys())
+print(d.items())
+
+.....PowerFul Functions In Python.....
+
+1.lambda:- one line function 
+sq=lambda a: a*a;
+print(sq(4))
+root=lambda a : a**(1/2)
+print(root(4))
+output:
+16
+2.0
+
+2.map: takes a function and lists
+def add(a,b):
+    return a+b
+ans=list(map(add,[4,5,6],[5,4,3])) 
+print(ans)
+output: [9, 9, 9]
+
+3.enumerate: - gives index value
+browsers=['chrome', 'firefox','opera','brave','edge']
+e=list(enumerate(browsers))
+print(e)
+
+output: 
+[(0, 'chrome'), (1, 'firefox'), (2, 'opera'), (3, 'brave'), (4, 'edge')]
+
+4.filter: it filters based on given function 
+pos=lambda a:a>0
+ans=list(filter(pos,[-5,4,-1,6,2,-3,8]))
+print(ans)
+output: [4, 6, 2, 8]
+
+5.zip
+Id=[1,2,3,4]
+names=["arbaz","basheer","pasha","raju"]
+z=list(zip(Id,names))
+print(z)
+output:
+[(1, 'arbaz'), (2, 'basheer'), (3, 'pasha'), (4, 'raju')]
+
+...............................pattrens : .....................
+1.
+r,c=map(int,input("enter r,c:").split())
+for i in range(r+1):
+    for j in range(c):
+        if(i>j):
+            print("*",end=" ")
+    print()
+
+* 
+* *
+* * *
+........modules.............
+
+1.textwrap
+
+import textwrap 
+  
+value = """This function wraps the input paragraph such that each line 
+in the paragraph is at most width characters long. The wrap method 
+returns a list of output lines. The returned list 
+is empty if the wrapped 
+output has no content."""
+  
+# Wrap this text. 
+wrapper = textwrap.TextWrapper(width=50) 
+  
+word_list = wrapper.wrap(text=value) 
+  
+# Print each line. 
+for element in word_list: 
+    print(element) 
+
+string = wrapper.fill(text=value) 
+# Print entire string.   
+print(string) 
