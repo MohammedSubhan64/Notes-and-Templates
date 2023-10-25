@@ -1,0 +1,111 @@
+........................JavaScript is the programming language of the Web.........................
+
+.............1.JS outputs:-.....................
+
+1. By using document.getElementById("demo").innerHTML = 5 + 6;
+2.The document.write() method should only be used for testing.
+3.Writing into an alert box, using window.alert("Welcome to mysite");
+4.Writing into the browser console, using console.log(5 + 6);
+5.To print <button onclick="window.print()">Print this page</button>
+
+.............2.JavaScript Keywords and varibles(var,let,const).......................
+Keyword	Description
+var	Declares a variable (global scope - redcalre or reassign possible)
+let	Declares a block variable (block scope - only reassign possible)
+const	Declares a block constant (block scope)
+if	Marks a block of statements to be executed on a condition
+switch	Marks a block of statements to be executed in different cases
+for	Marks a block of statements to be executed in a loop
+function	Declares a function
+return	Exits a function
+try	Implements error handling to a block of statements
+
+.................3.Types of JavaScript Operators..................
+
+Arithmetic Operators(+,-,*,/,%,**,++,--)
+Assignment Operators(=,+=,*=,/=)
+Comparison Operators(==,!=,===,<,>,<=,=>,?)
+String Operators(let text3 = text1 + " " + text2;)
+Logical Operators(&&,||,!)
+Bitwise Operators(&,|,~,^,<<,>>,>>>)
+Ternary Operators(?)
+Type Operators
+....................................4.JavaScript has 8 Datatypes...................
+1. String (let lastName = "Johnson";)
+2. Number (let weight = 7.5;)
+3. Bigint ()
+4. Boolean (let x = true;)
+5. Undefined (let car;    // Value is undefined, type is undefined)
+6. Null ()
+7. Symbol ()
+8. Object:-
+The Object Datatype ARE 
+1. An object (let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};)
+2. An array (const cars = ["Saab", "Volvo", "BMW"];)
+ Array methods:- 
+Array length
+Array toString()
+Array pop()
+Array push()
+Array shift()
+Array unshift()
+Array join()
+Array delete()
+Array concat()
+Array flat()
+Array splice()
+Array slice()
+3. A date (const date = new Date("2022-03-25");)
+The typeof operator returns the type of a variable or an expression:-
+typeof "John Doe"     // Returns "string"
+...............................5.JavaScript Functions.................................
+
+1.Function Declaration
+    function add(a, b) {          
+        console.log(a + b); 
+    } 
+    
+    // Calling a function 
+    add(2, 3); 
+
+2.Function Expression
+    const add = function(a, b) { 
+        console.log(a+b); 
+    }  
+      
+    // Calling function 
+    add(2, 3); 
+
+3.Arrow Function
+  // Single line of code 
+    let add = (a, b) => a + b;  
+      
+    console.log(add(3, 2)); 
+eg:- 
+    const great = (a, b) => { 
+        if (a > b)  
+            return "a is greater"; 
+        else
+            return "b is greater"; 
+    } 
+      
+    console.log(great(3,5)); 
+
+String methods: -
+String length
+String slice()
+String substring()
+String substr()
+String replace()
+String replaceAll()
+String toUpperCase()
+String toLowerCase()
+String concat()
+String trim()
+String trimStart()
+String trimEnd()
+String padStart()
+String padEnd()
+String charAt()
+String charCodeAt()
+String split()
