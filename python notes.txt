@@ -1,4 +1,33 @@
-................sets in python..................
+........list in python.....................
+list funs : append(),sort(),index(),remove(),pop(),insert(),extend(),reverse()
+l=[1,2,4,3]
+l.remove(3)
+print(l) #[1, 2, 4]
+l.insert(2,3)
+print(l) #[1, 2, 3, 4]
+l.append(5)
+print(l) #[1, 2, 3, 4, 5]
+l1=[4,8,5,6]
+l1.extend(l)
+print(l1) #[4, 8, 5, 6, 1, 2, 3, 4, 5]
+l1.reverse()
+print(l1) #[5, 4, 3, 2, 1, 6, 5, 8, 4]
+l1.sort()
+print(l1) #[1, 2, 3, 4, 4, 5, 5, 6, 8]
+
+................Sets in Python..................
+set funs : 
+dict = {'a':1,'b':2,'c':3}
+dict.keys() # returns list of keys of dictionary
+dict.values() # returns list of values of dictionary
+dict.get('a') # returns value for any corresponding key
+dict.items() # returns [('a',1),('b',2),('c',3)]
+dict.copy() # returns copy of the dictionary
+# NOTE : items() Returns view object that will be updated with any future
+# changes to dict
+dict.pop(KEY) # pops key-value pair with that key
+dict.popitem() # removes most recent pair added
+dict.setDefault(KEY,DEFAULT_VALUE)	 	
 s = set([1, 2, 3, 4, 5, 6, 7, 8])
 s.add(9)
 print(s) #{1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -36,6 +65,22 @@ print(d)
 print(d.values())
 print(d.keys())
 print(d.items())
+for i,j in d.items():
+	print(i,"=",j)
+output: 
+name = Raj
+Roll = 45
+class = CSE
+
+from collections import Counter
+l=['x','y','z','x','x','x','y', 'z']
+print(Counter(l))
+s=Counter("stackapps")
+print(s)
+print(s.keys())
+for i,j in s.items():
+    if(j>0):
+        print(i,j)    
 
 .....PowerFul Functions In Python.....
 
@@ -103,7 +148,7 @@ output has no content."""
   
 # Wrap this text. 
 wrapper = textwrap.TextWrapper(width=50) 
-  
+  	
 word_list = wrapper.wrap(text=value) 
   
 # Print each line. 
