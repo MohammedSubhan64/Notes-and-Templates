@@ -1,4 +1,9 @@
-keywords :- len(),round(),concat("+",col1,col2),ceil(),floor(),count(),left(),right(),replace(str,old_str,new_str)in(),substr(),cast(LONG_W AS DECIMAL (10,4))
+.........................SQL......................................
+keywords :- len(),round(),concat("+",col1,col2),ceil(),floor(),count(),
+Left(string, number_of_chars)
+right(),
+replace(str,old_str,new_str)
+in(),substr(),cast(LONG_W AS DECIMAL (10,4))
 1.create
 CREATE TABLE Persons (
     PersonID int,
@@ -25,7 +30,7 @@ VALUES (value1, value2, value3, ...);
 5.delete
 >DELETE FROM table_name WHERE condition;
 
-6. select Top -select top 3 rows
+6.select Top -select top 3 rows
 >SELECT TOP 3 * FROM Customers;
 
 7.SQL MIN() and MAX() Functions
