@@ -1,0 +1,18 @@
+>React is a JavaScript library for building user interfaces.
+>React is used to build single-page applications.
+>React allows us to create reusable UI components.
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Hello(props) {
+  return <h1>Hello World!</h1>;
+}
+
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
+root.render(<Hello />);
+..........steps to create a react app...........
+>npx create-react-app reactapp
+>cd my-react-app
+>npm start
