@@ -1,0 +1,96 @@
+Website - https://jquery.com/
+
+1.jQuery Syntax
+$('selector').action(function(){}) 
+
+2. This will execute your code after your document is fully loaded
+$(document).ready(function(){
+    // Your jQuey Code Here
+   })
+
+3.Types of jQuery selectors
+ 1. element selector
+ 2. id selector
+  //$('#myid').click()
+ 3. class selector
+   //$('.myclass').click()
+
+4.Events in jQuery
+Mouse events = click, dblclick, mouseenter, mouseleave
+KeyboardEvent = keypress, keydown, MediaKeyStatusMap
+form events = submit, change, focus, blur
+document/window events = load, resize, scroll, unload
+
+5.on method
+   $('p').on(
+        {
+            click: function () {
+                console.log('thanks for clicking', this)
+
+            },
+            mouseleave: function () {
+                console.log("MouseLeave")
+            }
+
+        })
+
+
+6. hide,show,toggle,
+$('#mybtn').click(function () {
+        $('#wiki').toggle(1000, function () {
+            console.log("hidden")
+        })
+    })
+similary we can use follwing  as hide
+show()
+fadeIn()
+ fadeOut()
+fadeToggle()
+fadeTo()       
+
+7.Slide methods - speed and callback parameters are optional
+$('#wiki').slideUp(1000, function(){
+     console.log('done');
+ })
+// $('#wiki').slideDown(1000)
+// $('#wiki').slideToggle(1000)
+
+8. Animate function in jQuery
+    $('#wiki').animate({
+        opacity:0.3,
+        height:'150px',
+        width:'350px'
+
+    },2000)
+ $('#wiki').animate({ opacity: 0.3 }, 4000);
+// $('#wiki').animate({ opacity: 0.9 }, 1000);
+// $('#wiki').animate({ width: '350px' }, 12000);
+
+9. form 
+// $('#ta').val('setting it to harry');
+// $('#ta').html('setting it to harry');
+// $('#ta').html('setting it to harry3');
+// $('#inp').html('setting it to harry3');
+// $('#inp').val('setting it to harry3');
+// $('#inp').empty()
+// $('#wiki').empty()
+// $('#wiki').text('you are good')
+// $('#wiki').remove()
+
+10. adding classes and removing
+//$('#wiki').addClass('myclass')
+// $('#wiki').addClass('myclass2')
+// $('#wiki').removeClass('myclass2')
+
+11. css styling
+// $('#wiki').css('background-color', 'red')
+ // $('#wiki').css('background-color')    
+
+12.AJAX Using jQuery
+// $.get('https://code.jquery.com/jquery-3.3.1.js', function (data, status) { alert(data); })
+
+// $.get('https://code.jquery.com/jquery-3.3.1.js', function (data, status) { alert(status); })
+
+// $.post('https://code.jquery.com/jquery-3.3.1.js',
+//     { name: 'harry', channel: 'code with harry' },
+//     function (data, status) { alert(status) });
