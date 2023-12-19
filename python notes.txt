@@ -14,9 +14,7 @@ l1.reverse()
 print(l1) #[5, 4, 3, 2, 1, 6, 5, 8, 4]
 l1.sort()
 print(l1) #[1, 2, 3, 4, 4, 5, 5, 6, 8]
-
-................Sets in Python..................
-set funs : 
+..............Dict in Python ....................
 dict = {'a':1,'b':2,'c':3}
 dict.keys() # returns list of keys of dictionary
 dict.values() # returns list of values of dictionary
@@ -27,7 +25,10 @@ dict.copy() # returns copy of the dictionary
 # changes to dict
 dict.pop(KEY) # pops key-value pair with that key
 dict.popitem() # removes most recent pair added
-dict.setDefault(KEY,DEFAULT_VALUE)	 	
+dict.setDefault(KEY,DEFAULT_VALUE)	 
+
+................Sets in Python..................
+set funs : 	
 s = set([1, 2, 3, 4, 5, 6, 7, 8])
 s.add(9)
 print(s) #{1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -158,3 +159,23 @@ for element in word_list:
 string = wrapper.fill(text=value) 
 # Print entire string.   
 print(string) 
+
+Coding Questions:
+Program to Reverse a Number:
+n=int(input("n:"))
+num=n
+rev=0
+print("rem","num","rev")
+while num>0:
+    rem=num%10 #last digit-rem
+    rev=(rev*10)+rem
+    num=num//10 #remove last digit -q
+    print(rem,num,rev)
+print(rev)    
+n:5463
+rem num rev
+3 546 3
+6 54 36
+4 5 364
+5 0 3645
+3645
