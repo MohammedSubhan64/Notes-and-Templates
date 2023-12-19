@@ -1,3 +1,11 @@
+.........................Python Operators............
+Arithmetic operators(+,-,/,*)
+Assignment operators(=,+=,-=,*=)
+Comparison operators(==, !=,<,>,>=,<=)
+Logical operators(and , or , not)
+Identity operators(is , not is)
+Membership operators(in, not in)
+Bitwise operators(&,|, ~, ^ ,<<,>>)
 ........list in python.....................
 list funs : append(),sort(),index(),remove(),pop(),insert(),extend(),reverse()
 l=[1,2,4,3]
@@ -14,7 +22,8 @@ l1.reverse()
 print(l1) #[5, 4, 3, 2, 1, 6, 5, 8, 4]
 l1.sort()
 print(l1) #[1, 2, 3, 4, 4, 5, 5, 6, 8]
-..............Dict in Python ....................
+
+................dict in Python...........
 dict = {'a':1,'b':2,'c':3}
 dict.keys() # returns list of keys of dictionary
 dict.values() # returns list of values of dictionary
@@ -25,15 +34,91 @@ dict.copy() # returns copy of the dictionary
 # changes to dict
 dict.pop(KEY) # pops key-value pair with that key
 dict.popitem() # removes most recent pair added
-dict.setDefault(KEY,DEFAULT_VALUE)	 
+dict.setDefault(KEY,DEFAULT_VALUE)	
 
 ................Sets in Python..................
-set funs : 	
+set funs :  	
 s = set([1, 2, 3, 4, 5, 6, 7, 8])
 s.add(9)
 print(s) #{1, 2, 3, 4, 5, 6, 7, 8, 9}
 s.remove(5)
 print(s) #{1, 2, 3, 4, 6, 7, 8, 9}
+
+set = {1,2,3}
+
+set.add(item)
+set.remove(item)
+set.discard(item) | set.remove(item)
+# removes item | remove will throw error if item is not there, discard will not
+set.pop() # removes random item (since unordered)
+
+set.isdisjoint(anotherSet) # returns true if no common elements
+set.issubset(anotherSet) # returns true if all elements from anotherSet is present in original set
+set.issuperset(anotherSet) # returns true if all elements from original set is present in anotherSet
+
+set.difference(anotherSet) # returns set containing items ONLY in first set
+set.difference_update(anotherSet) # removes common elements from first set [no new set is created or returned]
+set.intersection(anotherSet) # returns new set with common elements
+set.intersection_update(anotherSet) # modifies first set keeping only common elements
+set.symmetric_difference(anotherSet) # returns set containing all non-common elements of both sets
+set.symmetric_difference_update(anotherSet) # same as symmetric_difference but changes are made on original set
+
+set.union(anotherSet) # ...
+set.update(anotherSet) # adds anotherSet without duplicate
+
+...........................Tuples in python .........................
+tuple = (1,2,3,1)
+tuple.count(1) # returns occurence of an item
+tuple.index(1) # returns index of 1 in array
+
+
+...................................String in python ......................................
+# ** split Function **
+# The split() method breaks up a string at the specified separator and returns
+# a list of strings.
+text = 'Python is a fun programming language'
+
+# split the text from space
+print(text.split(' '))
+# Output: ['Python', 'is', 'a', 'fun', 'programming', 'language']
+
+# convert string to list
+s="abcd"
+s=list(s)
+print(s)
+# Output: ['a', 'b', 'c', 'd']
+
+# ** count Function **
+# The count() method returns the number of occurrences of a substring in the given string.
+# Example
+message = 'python is popular programming language'
+# number of occurrence of 'p'
+print('Number of occurrence of p:', message.count('p')) # Output: Number of occurrence of p: 4
+
+# The isnumeric() method returns True if all characters in a string are numeric characters. If not, it returns False.
+s = '1242323'
+print(s.isnumeric()) #Output: True
+
+# The find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1.
+# check the index of 'fun'
+print(message.find('fun')) # Output: 12
+
+# The isalnum() method returns True if all characters in the string are alphanumeric (either alphabets or numbers). If not, it returns False.
+
+name = "M3onica Gell22er "
+print(name.isalnum()) # Output : False
+
+# The isalpha() method returns True if all characters in the string are alphabets. If not, it returns False
+name = "Monica"
+print(name.isalpha()) #output true
+
+# other important functions
+string.strip([chars]) #The strip() method returns a copy of the string by removing both the leading and the trailing characters (based on the string argument passed).
+string.upper() # The upper() method converts all lowercase characters in a string into uppercase characters and returns it.
+string.lower() # The lower() method converts all uppercase characters in a string into lowercase characters and returns it.
+string.islower() # The islower() method returns True if all cased characters in the string are lowercase and there is at least one cased character, False otherwise.
+string.isdigit() 
+string.isupper() # The isupper() method returns True if all cased characters in the string are uppercase and there is at least one cased character, False otherwise.
 
 imp functions :- 
 sorted()
@@ -159,6 +244,79 @@ for element in word_list:
 string = wrapper.fill(text=value) 
 # Print entire string.   
 print(string) 
+
+#oops
+Use of Inheritance in Python
+# base class
+class Animal:
+    
+    def eat(self):
+        print( "I can eat!")
+    
+    def sleep(self):
+        print("I can sleep!")
+
+# derived class
+class Dog(Animal):
+    
+    def bark(self):
+        print("I can bark! Woof woof!!")
+
+# Create object of the Dog class
+dog1 = Dog()
+
+# Calling members of the base class
+dog1.eat()
+dog1.sleep()
+
+# Calling member of the derived class
+dog1.bark();
+
+Output
+
+I can eat!
+I can sleep!
+I can bark! Woof woof!!
+
+Encapsulation
+ 
+Encapsulation refers to the bundling of attributes and methods inside a single class.
+
+It prevents outer classes from accessing and changing attributes and methods of a class. This also helps to achieve data hiding.
+
+In Python, we denote private attributes using underscore as the prefix i.e single _ or double __. For example,
+
+
+class Computer:
+
+    def __init__(self):
+        self.__maxprice = 900
+
+    def sell(self):
+        print("Selling Price: {}".format(self.__maxprice))
+
+    def setMaxPrice(self, price):
+        self.__maxprice = price
+
+c = Computer()
+c.sell()
+
+# change the price
+c.__maxprice = 1000
+c.sell()
+
+# using setter function
+c.setMaxPrice(1000)
+c.sell()
+
+Output:
+
+Selling Price: 900
+Selling Price: 900
+Selling Price: 1000
+
+
+
 
 Coding Questions:
 Program to Reverse a Number:
