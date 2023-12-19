@@ -209,17 +209,62 @@ output:
 [(1, 'arbaz'), (2, 'basheer'), (3, 'pasha'), (4, 'raju')]
 
 ...............................pattrens : .....................
-1.
-r,c=map(int,input("enter r,c:").split())
-for i in range(r+1):
-    for j in range(c):
-        if(i>j):
-            print("*",end=" ")
-    print()
+pattern 1
+r=5
+for i in range(r):
+    for j in range(i+1):
+        print("*",end=" ")
+    print()   
 
 * 
-* *
-* * *
+* * 
+* * * 
+* * * * 
+* * * * *  
+
+pattern 2
+r,c=4,4
+for i in range(r):
+    for j in range(c):
+        if(j>=i):
+            print("*",end=" ")
+    print('')      
+* * * * 
+* * * 
+* * 
+* 
+
+pattern 3
+r=5
+ch=65
+for i in range(r):
+    for j in range(i+1):
+        a=chr(ch)
+        print(a,end=" ")
+    ch+=1
+    print()
+
+A 
+B B 
+C C C 
+D D D D 
+E E E E E   
+
+pattern 4
+for i in range(5):
+    n=1
+    for j in range(5):
+        if(j<=i):
+            print(n,end=" ")
+        n+=1
+    print()      
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+
+pattern 5
 ........modules.............
 
 1.textwrap
