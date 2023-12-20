@@ -364,7 +364,7 @@ Selling Price: 1000
 
 
 Coding Questions:
-Program to Reverse a Number:
+1. Program to Reverse a Number:
 n=int(input("n:"))
 num=n
 rev=0
@@ -382,3 +382,17 @@ rem num rev
 4 5 364
 5 0 3645
 3645
+2.write a fun in python that rev string maintaining order of words
+#hi world #ih dlrow
+s=input("Enter String :")
+mylst=[]
+lst=s.split()
+print(lst)
+for i in lst:
+    r=i[::-1]
+    mylst.append(r)
+print("list: ",mylst)  
+output :  
+Enter String :hello bro
+['hello', 'bro']
+list:  ['olleh', 'orb']
