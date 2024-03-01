@@ -326,6 +326,41 @@ output:
  [1 6 7]]
 7
 [1 4 7]
+
+.................Object-Oriented Programming (OOP) in Python 3.............................
+# dog.py
+
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Instance method
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+     def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+miles = Dog("Miles", 4)
+buddy = Dog("Buddy", 9)
+print(miles.description())
+print(buddy)
+ouput:
+Miles is 4 years old
+Buddy is 9 years old
+
+>>> a = Dog()
+>>> b = Dog()
+>>> a == b
+op: False
+
 ...............................pattrens : .....................
 pattern 1
 r=5
