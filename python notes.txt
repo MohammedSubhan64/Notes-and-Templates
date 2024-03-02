@@ -1,4 +1,3 @@
-
 ..................Data types in python............................
 1.Numeric - (integer,float,complex number)
 2.Sequence Type - (list,tuple,String)
@@ -327,39 +326,6 @@ output:
 7
 [1 4 7]
 
-.................Object-Oriented Programming (OOP) in Python 3.............................
-# dog.py
-
-class Dog:
-    species = "Canis familiaris"
-
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    # Instance method
-    def description(self):
-        return f"{self.name} is {self.age} years old"
-
-    # Another instance method
-    def speak(self, sound):
-        return f"{self.name} says {sound}"
-
-     def __str__(self):
-        return f"{self.name} is {self.age} years old"
-
-miles = Dog("Miles", 4)
-buddy = Dog("Buddy", 9)
-print(miles.description())
-print(buddy)
-ouput:
-Miles is 4 years old
-Buddy is 9 years old
-
->>> a = Dog()
->>> b = Dog()
->>> a == b
-op: False
 
 ...............................pattrens : .....................
 pattern 1
@@ -449,39 +415,162 @@ for element in word_list:
 string = wrapper.fill(text=value) 
 # Print entire string.   
 print(string) 
+.................Object-Oriented Programming (OOP) in Python 3......................
 
-#oops
-Use of Inheritance in Python
-# base class
-class Animal:
+1.class and object
+
+class Computer:
+    def config(self):
+        print("in con fun")
+c1=Computer() #object
+Computer.config(c1) #or
+c1.config() 
+op: 
+in con fun
+in con fun
+2. __init__(self) special method #it is be called default
+class Computer:
+    def __init__(self,cpu,ram):
+        print("Welcome in init")
+        self.cpu=cpu
+        self.ram=ram
+
+    def config(self): # Instance method
+        print(f"cpu is {self.cpu} with ram {self.ram}")
+        
+c1=Computer("i3","1TB") 
+c2=Computer("i5","2TB")
+c1.config()
+c2.config()
+output:
+Welcome in init
+Welcome in init
+cpu is i3 with ram 1TB
+cpu is i5 with ram 2TB
+
+3. Types of varibles 
+class Car:
+	#class varible or static varible
+	wheels=4 
+	def __init__(self):
+		#intances varible
+		self.mil=10
+		self.com="BMW"
+c1=Car()
+c2=Car()
+Car.wheels=8 # can be change using class name 
+c1.mil=45
+
+print(c1.mil,c2.com,c1.wheels,Car.wheels)
+output: 45 BMW 8 8
+
+4. types of methods 
+
+class Student:
+    college="MJ College"
+    def __init__(self,m1,m2,m3):
+        self.m1=m1
+        self.m2=m2
+        self.m3=m3
     
-    def eat(self):
-        print( "I can eat!")
-    
-    def sleep(self):
-        print("I can sleep!")
+    def avg(self):
+        return (self.m1+self.m2+self.m3)/3
+    @classmethod    
+    def getCollege(cls):
+        return cls.college
+    @staticmethod
+    def info():
+        print("IN class student of types of method ")
+s1=Student(45,45,45)
+s2=Student(84,95,78)
+print(s1.avg())
+print(Student.getCollege())
+Student.info()
+output:
+45.0
+MJ College
+IN class student of types of method 
+5.Inheritance
+#single inheritances
+class A:
+    def f1(self):
+        print("f1 working")
+    def f2(self):
+        print("f2 working")    
+class B(A):
+    def f3(self):
+        print("f3 working")
+    def f4(self):
+        print("f4 working")
+a=A() # can call f1, f2
+b=B() # can call f1,f2,f3,f4
+a.f2()
+b.f1() 
+# a.f3() #it doest work as f3 is child method
+o/p:
+f2 working
+f1 working
+# multi level inheritances
+class A:
+    def f1(self):
+        print("f1 working")
+    def f2(self):
+        print("f2 working")    
+class B(A):
+    def f3(self):
+        print("f3 working")
+    def f4(self):
+        print("f4 working")
+class C(B):
+    def f5(self):
+        print("f5 working ")
+a=A() # can call f1,f2
+b=B() # can call f1,2,3,4
+c=C() # can all above class as it is multi level
+b.f2()
+c.f4()
+output:
+f2 working
+f4 working
+# multiple level inheritances
+class A:
+    def f1(self):
+        print("f1 working")
+    def f2(self):
+        print("f2 working")    
+class B:
+    def f3(self):
+        print("f3 working")
+    def f4(self):
+        print("f4 working")
+class C(A,B):
+    def f5(self):
+        print("f5 working ")
+c=C()
+c.f2() #similar for f1, f3,f4,f5
+o/p: f2 working
 
-# derived class
-class Dog(Animal):
-    
-    def bark(self):
-        print("I can bark! Woof woof!!")
-
-# Create object of the Dog class
-dog1 = Dog()
-
-# Calling members of the base class
-dog1.eat()
-dog1.sleep()
-
-# Calling member of the derived class
-dog1.bark();
-
-Output
-
-I can eat!
-I can sleep!
-I can bark! Woof woof!!
+6.construtor in inheritance imp
+class A:
+    def __init__(self):
+        print("In A init")
+    def f1(self):
+        print("f1 working")
+    def f2(self):
+        print("f2 working")    
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print("In B init")
+    def f3(self):
+        print("f3 working")
+    def f4(self):
+        print("f4 working")
+# a=A()
+b=B()
+output:
+In B init
+In A init
 
 Encapsulation
  
@@ -490,7 +579,6 @@ Encapsulation refers to the bundling of attributes and methods inside a single c
 It prevents outer classes from accessing and changing attributes and methods of a class. This also helps to achieve data hiding.
 
 In Python, we denote private attributes using underscore as the prefix i.e single _ or double __. For example,
-
 
 class Computer:
 
