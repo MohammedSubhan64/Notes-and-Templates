@@ -579,35 +579,83 @@ Encapsulation refers to the bundling of attributes and methods inside a single c
 It prevents outer classes from accessing and changing attributes and methods of a class. This also helps to achieve data hiding.
 
 In Python, we denote private attributes using underscore as the prefix i.e single _ or double __. For example,
+https://www.tutorialspoint.com/python/python_encapsulation.htm
+class Student:
 
-class Computer:
+   def __init__(self, name="Rajaram", marks=50):
+      self.__name = name
+      self.__marks = marks
+   def studentdata(self):
+      print ("Name: {} marks: {}".format(self.__name, self.__marks))
+      
+s1 = Student()
+s2 = Student("Bharat", 25)
 
-    def __init__(self):
-        self.__maxprice = 900
-
-    def sell(self):
-        print("Selling Price: {}".format(self.__maxprice))
-
-    def setMaxPrice(self, price):
-        self.__maxprice = price
-
-c = Computer()
-c.sell()
-
-# change the price
-c.__maxprice = 1000
-c.sell()
-
-# using setter function
-c.setMaxPrice(1000)
-c.sell()
+s1.studentdata()
+s2.studentdata()
+print ("Name: {} marks: {}".format(s1.__name, s2.__marks))
+print ("Name: {} marks: {}".format(s2.__name, __s2.marks))
 
 Output:
+Name: Rajaram marks: 50
+Name: Bharat marks: 25
+Traceback (most recent call last):
+ File "C:\Python311\hello.py", line 14, in <module>
+  print ("Name: {} marks: {}".format(s1.__name, s2.__marks))
+AttributeError: 'Student' object has no attribute '__name'
 
-Selling Price: 900
-Selling Price: 900
-Selling Price: 1000
+Polymorphism in Python
+Polymorphism and Inheritance
+from math import pi
 
+
+class Shape:
+    def __init__(self, name):
+        self.name = name
+
+    def area(self):
+        pass
+
+    def fact(self):
+        return "I am a two-dimensional shape."
+
+    def __str__(self):
+        return self.name
+
+
+class Square(Shape):
+    def __init__(self, length):
+        super().__init__("Square")
+        self.length = length
+
+    def area(self):
+        return self.length**2
+
+    def fact(self):
+        return "Squares have each angle equal to 90 degrees."
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+
+    def area(self):
+        return pi*self.radius**2
+
+
+a = Square(4)
+b = Circle(7)
+print(b)
+print(b.fact())
+print(a.fact())
+print(b.area())
+
+output:
+Circle
+I am a two-dimensional shape.
+Squares have each angle equal to 90 degrees.
+153.93804002589985
 
 
 Coding Questions:
