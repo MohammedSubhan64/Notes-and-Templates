@@ -1,0 +1,122 @@
+To read data 
+import numpy as np
+import pandas as pd
+df=pd.read_csv('data.csv')
+df.head(3)
+
+#Here's the code to check for missing values and duplicates in a pandas DataFrame:=
+
+import pandas as pd
+
+# Sample DataFrame with missing values, duplicates, and incorrect data types
+data = {
+    'EmployeeID': [1, 2, 3, 4, 4],
+    'Name': ['John Doe', 'Jane Smith', None, 'Mike Johnson', 'Mike Johnson'],
+    'Age': ['29', '34', None, '40', '40'],
+    'Salary': [None, '50000', '55000', '60000', '60000'],
+    'JoiningDate': ['2020-01-15', '2019-08-23', '2018-03-01', None, '2021-07-11']
+}
+
+df = pd.DataFrame(data)
+
+# Display the original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Check for missing values
+
+# Check if there are any missing values in the DataFrame
+print("\nAny missing values in the DataFrame?")
+print(df.isnull().values.any())
+
+# Count the total number of missing values in each column
+print("\nCount of missing values in each column:")
+print(df.isnull().sum())
+
+# Display rows with missing values
+print("\nRows with missing values:")
+print(df[df.isnull().any(axis=1)])
+
+# Check for duplicates
+
+# Check if there are any duplicate rows in the DataFrame
+print("\nAny duplicate rows in the DataFrame?")
+print(df.duplicated().any())
+
+# Count the total number of duplicate rows
+print("\nCount of duplicate rows:")
+print(df.duplicated().sum())
+
+# Display duplicate rows
+print("\nDuplicate rows:")
+print(df[df.duplicated()])
+
+import pandas as pd
+
+# Sample DataFrame with incorrect data types
+data = {
+    'EmployeeID': [1, 2, 3, 4, 5],
+    'Name': ['John Doe', 'Jane Smith', 'Alice', 'Mike Johnson', 'Eve'],
+    'Age': ['29', '34', '27', '40', '35'],
+    'Salary': ['50000', '55000', '48000', '60000', '52000'],
+    'JoiningDate': ['2020-01-15', '2019-08-23', '2018-03-01', '2021-07-11', '2022-05-30']
+}
+
+df = pd.DataFrame(data)
+
+# Display the original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Correct data types
+
+# Convert 'Age' to numeric (integer)
+df['Age'] = pd.to_numeric(df['Age'], errors='coerce').astype(int)
+
+# Convert 'Salary' to numeric (integer)
+df['Salary'] = pd.to_numeric(df['Salary'], errors='coerce').astype(int)
+
+# Convert 'JoiningDate' to datetime
+df['JoiningDate'] = pd.to_datetime(df['JoiningDate'], errors='coerce')
+
+# Display the DataFrame with corrected data types
+print("\nDataFrame with Corrected Data Types:")
+print(df)
+
+# Verify the data types
+print("\nData Types:")
+print(df.dtypes)
+
+
+.................................There are several ways to handle missing values........................................................
+#fillna() method to fill the missing values with a specific value
+df.fillna(0, inplace=True)
+or
+#dropna() method to remove rows or columns that contain missing values
+df.dropna(inplace=True)
+data.to_csv('output.csv', index=False)
+
+# Remove rows with missing values
+df_cleaned = df.dropna()
+
+# Remove columns with missing values
+df_cleaned_columns = df.dropna(axis=1)
+
+# Fill missing values with zero
+df_filled_zero = df.fillna(0)
+
+# Fill missing values with the mean of the column
+df_filled_mean = df.copy()
+df_filled_mean['column1'] = df_filled_mean['column1'].fillna(df_filled_mean['column1'].mean())
+
+# Forward fill missing values
+df_ffill = df.copy()
+df_ffill['column1'] = df_ffill['column1'].fillna(method='ffill')
+
+# Interpolate missing values
+df_interpolated = df.copy()
+df_interpolated['column1'] = df_interpolated['column1'].interpolate()
+
+# Replace missing values with the mode
+df_filled_mode = df.copy()
+df_filled_mode['column1'] = df_filled_mode['column1'].fillna(df_filled_mode['column1'].mode()[0])
